@@ -1,15 +1,17 @@
 import { useState } from "react";
 
-function Player({initialName, symbol, isActive }) {
+function Player({initialName, updatePlayerName, symbol, isActive }) {
   const [ playerName, setPlayerName ] = useState(initialName);
   const [ isEditing, setIsEditing ] = useState(false); 
 
   function handlEditOnClick() {
+    updatePlayerName(symbol, playerName.toUpperCase());
     setIsEditing(editingFlag => !editingFlag);
   }
 
   function handlechange(event) {
-    setPlayerName(event.target.value);
+    const inputPlayerName = event.target.value;
+    setPlayerName(inputPlayerName);
   }
 
   const component = isEditing ? <input type="text" required value={playerName} onChange={handlechange}/> : 
