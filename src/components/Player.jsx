@@ -5,7 +5,7 @@ function Player({initialName, updatePlayerName, symbol, isActive }) {
   const [ isEditing, setIsEditing ] = useState(false); 
 
   function handlEditOnClick() {
-    if(editingFlag) {
+    if(isEditing) {
       updatePlayerName(symbol, playerName.toUpperCase());
     }
     setIsEditing(editingFlag => !editingFlag);
